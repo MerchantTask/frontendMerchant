@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    var id = localStorage.getItem('adminId');
-
+    var id = localStorage.getItem('companyId');
+alert(id);
 $("form.changePassword").on("submit", function () {
   var checkstr =  confirm('are you sure you want change password?');
   if(checkstr == true){
@@ -15,14 +15,17 @@ $("form.changePassword").on("submit", function () {
 
     $.ajax({
       type: "PUT",
-      url: "http://localhost:8000/login/changePassword/" + id,
+      url: "http://localhost:8000/Company/merchantChangePassword/" + id,
       data: data,
       beforeSend: function (xhr) {
 
       },
       success: function (result) {
-        if(result){
-            alert(result.message);}
+        if(result.message=="Password Changed"){
+            alert(result.message);
+            location.href="index.html";
+          
+          }
        
       }
     });

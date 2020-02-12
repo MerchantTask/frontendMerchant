@@ -1,33 +1,40 @@
 $(document).ready(function (){
-    var companyId = localStorage.getItem('id');
-
+   
     $("form.loginForm").on("submit",function(e){
         e.preventDefault();
-        company_email=$("#company_email").val();
+        company_name=$("#company_name").val();
         password = $("#password").val();
+       
 
         data ={
-            "company_email":company_email,
+            "company_name":company_name,
             "password":password
         }
         $.ajax({
-            url:'http://localhost:8000/merchant/login/',
+            url:'http://localhost:8000/Company/login/',
             type:'post',
             dataType: 'json',
             data:data,
 
             success:function(res,textStatus,xhr){
-                if (res.companyId !==null){
-                    localStorage.setItem('companyId', res.id);
-
-                    alert("login");
-                    location.href = "index.html"
-                }
-                else{
+                if (res.token != null) {
+                    if(res.loginattempt>0){
+                        localStorage.setItem('token', res.token);
+                    localStorage.setItem('companyId',res.id);
+                  
+                      location.href = "index.html";
+                    }else{
+                        localStorage.setItem('token', res.token);
+                    localStorage.setItem('companyId',res.id);
+                        location.href = "changepassword.html";
+                    }
+                    
+                   
+      
+                  }
+                  else {
                     alert(res.message);
-
-                }
-                
+                  }
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log('Error in Operation');
