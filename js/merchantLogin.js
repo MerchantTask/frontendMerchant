@@ -20,12 +20,12 @@ $(document).ready(function (){
                 if (res.token != null) {
                     if(res.loginattempt>0){
                         localStorage.setItem('token', res.token);
-                    localStorage.setItem('companyId',res.id);
+                    localStorage.setItem('company_id',res.id);
                   
                       location.href = "index.html";
                     }else{
                         localStorage.setItem('token', res.token);
-                    localStorage.setItem('companyId',res.id);
+                    localStorage.setItem('company_id',res.id);
                         location.href = "changepassword.html";
                     }
                     

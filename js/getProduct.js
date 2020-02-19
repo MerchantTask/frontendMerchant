@@ -6,7 +6,7 @@ window.onload = function() {
         let details = '';
         const url = 'http://localhost:8000/uploads/';
         data.forEach(element => {
-            details += `<div class="col-sm-3" data-div="${element._Id}">
+            details += `<div class="col-sm-3" data-div="${element._id}">
             <div class="thumb-wrapper">
                 <div class="img-box">
                     <img src="${url+element.image}" class="img-responsive img-fluid" alt="">
@@ -23,7 +23,7 @@ window.onload = function() {
                             <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
                         </ul>
                     </div>
-                    <a href="addtocart.html?${element.id}" >Add to Cart</a>
+                    <a href="addtocart.html?id=${element._id}" >Add to Cart</a>
                 </div>						
             </div>
         </div>`;

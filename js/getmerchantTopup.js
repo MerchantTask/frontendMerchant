@@ -8,7 +8,7 @@ $(document).ready(function () {
     }
     
     );
-    var company_id = localStorage.getItem('companyId');
+    var company_id = localStorage.getItem('company_id');
 
     $.getJSON('http://localhost:8000/topup/getTopupbyid/' + company_id, function (res) {
         $.each(res, function (index) {
