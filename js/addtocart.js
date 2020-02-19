@@ -2,6 +2,8 @@
     var urlParams = new URLSearchParams(window.location.search);
     const email = window.localStorage.getItem('email');
     const company_id = window.localStorage.getItem('company_id');
+    const tok = window.localStorage.getItem("token")
+    if (tok !== null){
     var id = urlParams.get("id");
     this.console.log(id);
     fetch('http://localhost:8000/getdata/'+ id,{
@@ -41,4 +43,7 @@
       .catch(error => {
           console.log(error)
       })
+    } else{
+      window.location.href = "login.html"
+    }
     }

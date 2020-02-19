@@ -35,3 +35,16 @@ input[type=file] {
 
  background-color: aqua;
 }
+.companyDetails{
+  margin-left: 20%;
+  flex: 0 0 40%;
+
+}
+.contactDetails{
+  margin-left: 1%;
+  flex: 1;
+
+}
+#wrapper {
+  display: flex;
+}

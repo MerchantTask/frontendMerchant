@@ -2,7 +2,8 @@ window.onload = function() {
     // const email = window.localStorage.getItem('email');
     const company_id = window.localStorage.getItem('company_id');
 
-
+	const tok = window.localStorage.getItem("token")
+    if (tok !== null){
     fetch('http://localhost:8000/getAddtocart/' + company_id ,{
      
     }).then(data => {
@@ -43,6 +44,8 @@ window.onload = function() {
           
             })
           
-
+		}else{
+			window.location.href = "login.html"
+		}
       
     }

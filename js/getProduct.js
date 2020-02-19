@@ -1,4 +1,6 @@
 window.onload = function() {
+    const tok = window.localStorage.getItem("token")
+    if (tok !== null){
     fetch('http://localhost:8000/getProduct',{
     }).then(data => {
         return data.json()
@@ -37,4 +39,8 @@ document.getElementById('detail').innerHTML = details;
 .catch(error => {
 console.log(error)
 })
+    }
+    else{
+        window.location.href = "login.html"
+    }
 }

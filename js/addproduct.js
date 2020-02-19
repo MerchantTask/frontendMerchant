@@ -1,7 +1,7 @@
 $(document).ready(function () {
-
+var tok = window.localStorage.getItem('company_id');
     let imageFile =''
-
+if (tok !== null){
     $("#image").on('change',function(){
         let formData = new FormData();
         let files =$("#image").get(0).files;
@@ -62,5 +62,8 @@ $(document).ready(function () {
         });
 
     })
-
+}
+else{
+    location.href = "login.html"
+}
 });
