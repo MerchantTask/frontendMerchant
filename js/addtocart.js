@@ -2,7 +2,7 @@
     var urlParams = new URLSearchParams(window.location.search);
     const email = window.localStorage.getItem('email');
     const company_id = window.localStorage.getItem('company_id');
-    const tok = window.localStorage.getItem("token")
+    const tok = window.localStorage.getItem("token_merchant")
     if (tok !== null){
     var id = urlParams.get("id");
     this.console.log(id);

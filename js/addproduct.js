@@ -1,7 +1,9 @@
 $(document).ready(function () {
-var tok = window.localStorage.getItem('company_id');
+var tok = window.localStorage.getItem('token_merchant');
     let imageFile =''
-if (tok !== null){
+if (tok== null){
+    location.href = "login.html"}
+    else{
     $("#image").on('change',function(){
         let formData = new FormData();
         let files =$("#image").get(0).files;
@@ -63,7 +65,5 @@ if (tok !== null){
 
     })
 }
-else{
-    location.href = "login.html"
-}
+
 });

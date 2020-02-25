@@ -19,12 +19,12 @@ $(document).ready(function (){
             success:function(res,textStatus,xhr){
                 if (res.token != null) {
                     if(res.loginattempt>0){
-                        localStorage.setItem('token', res.token);
+                        localStorage.setItem('token_merchant', res.token);
                     localStorage.setItem('company_id',res.id);
                   
                       location.href = "index.html";
                     }else{
-                        localStorage.setItem('token', res.token);
+                        localStorage.setItem('token_merchant', res.token);
                     localStorage.setItem('company_id',res.id);
                         location.href = "changepassword.html";
                     }

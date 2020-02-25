@@ -1,5 +1,5 @@
 window.onload = function() {
-    const tok = window.localStorage.getItem("token")
+    const tok = window.localStorage.getItem("token_merchant")
     if (tok !== null){
     fetch('http://localhost:8000/getProduct',{
     }).then(data => {

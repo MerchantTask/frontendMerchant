@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    var id = localStorage.getItem('companyId');
+  var tok = localStorage.getItem('token_merchant');
+    var id = localStorage.getItem('company_id');
 alert(id);
 $("form.changePassword").on("submit", function () {
   var checkstr =  confirm('are you sure you want change password?');
@@ -18,7 +19,7 @@ $("form.changePassword").on("submit", function () {
       url: "http://localhost:8000/Company/merchantChangePassword/" + id,
       data: data,
       beforeSend: function (xhr) {
-
+       
       },
       success: function (result) {
         if(result.message=="Password Changed"){

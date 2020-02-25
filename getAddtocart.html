@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   
+
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -11,42 +12,95 @@
     <link rel="stylesheet" href="style.css">
     <script src="js/getAddtocart.js"></script>
 
-    
+
+
 </head>
+
 <body>
-   
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h2>Addtocart <b>Products</b></h2>
+
                 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-                    
-                 <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                
-    
-                </ol>   
-                <!-- Wrapper for carousel items -->
-                <div class="carousel-inner">
-                    <div class="item carousel-item active">
-                        <div class="row" id="Addtocart">
-                            <div class="col-sm-3">
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+
+
+                    </ol>
+                    <!-- Wrapper for carousel items -->
+                    <div class="carousel-inner">
+                        <div class="item carousel-item active">
+                            <div class="row" id="Addtocart">
+                                <div class="col-sm-3">
+                                </div>
                             </div>
+                            <!-- Carousel controls -->
+                            <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="carousel-control right carousel-control-next" href="#myCarousel"
+                                data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <!-- Carousel controls -->
-                <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
-                    <i class="fa fa-angle-right"></i>
-                </a>
             </div>
-            </div>
-        </div>
-        </div>
         </div>
         
+        <p > <span>Total Price: </span><span id="totalPrice"></span></p>
+        <script>
+          
+
+            function addQuantity(id, quantity, price) {
+
+                var inputQuantityElement = $("#quantity-" + id).val();
+                var totalPrice= $("#totalPrice").text();
+                
+                if (quantity > inputQuantityElement) {
+                    var newQuantity = parseInt(inputQuantityElement) + 1;
+                    $("#quantity-" + id).val(newQuantity)
+
+                    var newsubTotal = parseInt(totalPrice) + parseInt(price);
+                    $("#totalPrice").html(newsubTotal)
+
+                    var newPrice = newQuantity * parseInt(price);
+                    $("#price-" + id).html(newPrice)
+                   
+                } else {
+                    alert("Exceeded Quantity available")
+                }
+
+            };
+
+            function subtractQuantity(id, price) {
+                var totalPrice= $("#totalPrice").text();
+                var inputQuantityElement = $("#quantity-" + id).val();
+
+                if (inputQuantityElement > 1) {
+                    var newQuantity = parseInt(inputQuantityElement) - 1;
+                    $("#quantity-" + id).val(newQuantity);
+
+                    var newsubTotal = parseInt(totalPrice) - parseInt(price);
+                    $("#totalPrice").html(newsubTotal);
+                  
+                    var newPrice = newQuantity * parseInt(price);
+                    $("#price-" + id).html(newPrice);
+                   
+                } else {
+                    alert("Minimum Quantity reached")
+                }
+
+            };
+           
+
+            
+        </script>
 </body>
+
 </html>
