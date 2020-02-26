@@ -24,18 +24,28 @@
               price:data.price,
               image : data.image,
               remarks:'pending',
-              company_id: company_id
+              company_id: company_id,
+              product_id:id
            
             })
         })
-       
-             .then(data => {
-                      console.log(data);
-                      alert("success");
-                      window.location.href = 'getAddtocart.html';
-                    
-                    })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Success:', data);
+          if (data.message =="Already Added"){
+            this.alert("Already Added");
+            window.location.href = 'getProduct.html';
+          }
+          else{
+            this.alert("Add to cart");
+            window.location.href = 'getAddtocart.html';
+          }
 
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+     
           
             })
           
