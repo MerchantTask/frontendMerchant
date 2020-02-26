@@ -1,5 +1,6 @@
 $(document).ready(function () {
 var tok = window.localStorage.getItem('token_merchant');
+var merchant_id = window.localStorage.getItem('company_id');
     let imageFile =''
 if (tok== null){
     location.href = "login.html"}
@@ -44,7 +45,8 @@ if (tok== null){
             "quantity" : quantity,
             "details" : details,
             "price" : price,
-            "image" :listImage 
+            "image" :listImage,
+            "merchant_id":merchant_id 
         }
         $.ajax({
             url: 'http://localhost:8000/productAdd/',
@@ -55,7 +57,7 @@ if (tok== null){
             success: function (res, textStatus, xhr) {
                 if (res.message == "succces") {
                   alert("Added Successful")
-                    location.href = "getProduct.html"
+                    location.href = "index.html"
                   }
                 },
                 error:function(e){

@@ -55,12 +55,19 @@
         
         <p > <span>Total Price: </span><span id="totalPrice"></span></p>
         <button id="checkout">Checkout</button>
-        <script>
-         
-         function remove(id) {
-            
 
-             $.ajax({
+
+
+        <script>
+          $("#checkout").on('click',function(){
+          $("#totalPrice").text();
+
+alert()
+          });
+
+
+         function remove(id) {
+          $.ajax({
         url: 'http://localhost:8000/removeFormCart/' + id,
         type: 'DELETE',
         beforeSend: function (xhr) {
@@ -100,6 +107,9 @@
                     var newPrice = newQuantity * parseInt(price);
                     $("#price-" + id).html(newPrice)
                    
+
+                    sessionStorage.setItem("quantity-"+ id, "Smith");
+
                 } else {
                     alert("Exceeded Quantity available")
                 }
