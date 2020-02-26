@@ -54,8 +54,36 @@
         </div>
         
         <p > <span>Total Price: </span><span id="totalPrice"></span></p>
+        <button id="checkout">Checkout</button>
         <script>
-          
+         
+         function remove(id) {
+            
+
+             $.ajax({
+        url: 'http://localhost:8000/removeFormCart/' + id,
+        type: 'DELETE',
+        beforeSend: function (xhr) {
+
+        //   if (tok) {
+
+        //     xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
+        //   }
+        },
+        success: function (res, textStatus, xhr) {
+         if(res.message=="succesfully removed"){
+            alert(res.message);
+         location.reload();
+         }
+        
+       
+
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          console.log('Error in Operation');
+        }
+      });
+         };
 
             function addQuantity(id, quantity, price) {
 

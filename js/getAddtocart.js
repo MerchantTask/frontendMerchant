@@ -30,7 +30,7 @@ window.onload = function () {
     								<div class="img-box">
     									<img src="${url + element.image}" class="img-responsive img-fluid" alt="">
     								</div>
-    								<div class="thumb-content">
+    								<div class="thumb-content" id="test">
     									<h4>${element.product_name}</h4>
 										<p class="item-price"> <span>price : Rs ${element.price}</span></p>
 										
@@ -40,7 +40,8 @@ window.onload = function () {
 										<input type="submit" value="-" id="subtract_quantity" onclick="subtractQuantity('${element._id}','${element.price}')">  
 									<input type="text" value="1" id="quantity-${element._id}" style="width:30px; font-weight:bold;color:red" readonly>
 									    
-									<input type="submit" value="+" id="add_quantity" onclick="addQuantity('${element._id}','${element.quantity}','${element.price}')">            
+									<input type="submit" value="+" id="add_quantity" onclick="addQuantity('${element._id}','${element.quantity}','${element.price}')">
+									</p>            
 										<p class="item-price"> <span>Details : ${element.details}</span></p>
 										<p class="item-total"> <span>Item Total : </span><span id="price-${element._id}">${element.price}</span></p>
 									
@@ -56,7 +57,8 @@ window.onload = function () {
 										</div>
 										
 							
-										<a href="buy.html?${element._id}" >Buy</a>
+										<input type="submit" value="Remove" id="remove" onclick="remove('${element._id}')"> 
+									
 										
     								</div>						
     							</div>
@@ -68,19 +70,14 @@ window.onload = function () {
 
 				});
 
-
 				document.getElementById('Addtocart').innerHTML = detail;
-
-
-
-
 			})
+			
 
-
-
+		
 
 	} else {
 		window.location.href = "login.html"
 	}
-
+	
 }
