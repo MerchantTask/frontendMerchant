@@ -146,6 +146,27 @@
 			$("#account").DataTable();
 		});
 	</script>
+	<script>
+		   function removeproduct(id) {
+          $.ajax({
+        url: 'http://localhost:8000/removeProduct/' + id,
+        type: 'DELETE',
+       
+        success: function (res, textStatus, xhr) {
+         if(res.message=="succesfully removed"){
+            alert(res.message);
+         location.reload();
+         }
+        
+       
+
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          console.log('Error in Operation');
+        }
+      });
+         };
+	</script>
 </body>
 
 </html>
