@@ -36,15 +36,18 @@ input[type=file] {
  background-color: aqua;
 }
 .companyDetails{
-  margin-left: 20%;
+  margin-left: 10%;
   flex: 0 0 40%;
 
 }
 .contactDetails{
-  margin-left: 1%;
-  flex: 1;
+  height: 20px;
+  width: 900px;
 
 }
 #wrapper {
   display: flex;
+}
+#apikey{
+  width: 320px;
 }

@@ -10,6 +10,7 @@ $(document).ready(function () {
           $('#phone').val(res[index].contact_phone);
           $('#cemail').val(res[index].company_email);
           $('#pan').val(res[index].pan);
+          $('#apikey').val(res[index].apikey);
           $('#image_display').html('<img src="http://localhost:8000/uploads/' +res[index].verification_imagename +
           '" class="img-thumbnail" alt="Sample image" height="200px" width="200px">');
           });
